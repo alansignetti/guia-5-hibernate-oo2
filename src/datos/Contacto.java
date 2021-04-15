@@ -1,12 +1,11 @@
 package datos;
 
 public class Contacto {
-	private long idContacto;
+	private int idContacto;
 	private String email;
 	private String movil;
 	private String fijo;
-	private Cliente cliente;
-
+	
 	public Contacto() {
 	}
 
@@ -14,14 +13,13 @@ public class Contacto {
 		this.email = email;
 		this.movil = movil;
 		this.fijo = fijo;
-		this.cliente = cliente;
 	}
 
 	public long getIdContacto() {
 		return idContacto;
 	}
 
-	protected void setIdContacto(long idContacto) {
+	protected void setIdContacto(int idContacto) {
 		this.idContacto = idContacto;
 	}
 
@@ -47,14 +45,6 @@ public class Contacto {
 
 	public void setFijo(String fijo) {
 		this.fijo = fijo;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
 	}
 
 	public String toString() {
