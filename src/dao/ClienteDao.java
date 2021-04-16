@@ -5,7 +5,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import datos.Cliente;
-import mapeos.HibernateUtil;
 
 public class ClienteDao {
 	private static Session session;
@@ -29,6 +28,21 @@ public class ClienteDao {
 	protected void manejaExcepcion(HibernateException he) throws HibernateException {
 		tx.rollback();
 		throw new HibernateException("ERROR en la capa de acceso a datos", he);
+	}
+	
+	public int agregar(Cliente objeto) {
+		int id = 0;
+		try {
+			iniciaOperacion();
+			id = Integer.parseInt(session.save(objeto).toString());
+			tx.commit();
+		} catch (HibernateException he) {
+			manejaExcepcion(he);
+			throw he;
+		} finally {
+			session.close();
+		}
+		return id;
 	}
 
 	public Cliente traer(int idCliente) {
