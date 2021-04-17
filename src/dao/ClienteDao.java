@@ -55,6 +55,68 @@ public class ClienteDao {
 		}
 		return objeto;
 	}
+	
+	
+	// -------------------------------------------------------------------
+	// -------------------------------------------------------------------
+	// -------------------------------------------------------------------
+	// -------------------------------------------------------------------
+	// -------------------------------------------------------------------
+	// -------------------------------------------------------------------
+	// -------------------------------------------------------------------
+	// ------------------------alan---------------------------------------
+	public Cliente traerNroCliente(String nroCliente) {
+		Cliente objeto = null;
+		try {
+			iniciaOperacion();
+			objeto = (Cliente) session.createQuery("from Cliente c where c.nroCliente =" + nroCliente).uniqueResult();
+		} finally {
+			session.close();
+		}
+		return objeto;
+	}
+	
+		public Cliente traerCUIT(String cuit) {
+			Cliente objeto = null;
+			try {
+				iniciaOperacion();
+				objeto = (Cliente) session.createQuery("from Cliente c where c.cuit = '" + cuit+"'").uniqueResult();
+			} finally {
+				session.close();
+			}
+			return objeto;
+		}
+		
+		public Cliente traerDNI(int dni) {
+			Cliente objeto = null;
+			try {
+				iniciaOperacion();
+				objeto = (Cliente) session.createQuery("from Cliente c where c.dni =" + dni).uniqueResult();
+			} finally {
+				session.close();
+			}
+			return objeto;
+		}
+	// ------------------------alan---------------------------------------
+	// -------------------------------------------------------------------
+	// -------------------------------------------------------------------
+	// -------------------------------------------------------------------
+	// -------------------------------------------------------------------
+	// -------------------------------------------------------------------
+	// -------------------------------------------------------------------
+	// -------------------------------------------------------------------
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 	@SuppressWarnings("unchecked")
 	public List<Cliente> traer() throws HibernateException {
