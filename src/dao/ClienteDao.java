@@ -44,6 +44,32 @@ public class ClienteDao {
 		}
 		return id;
 	}
+	
+	public void eliminar(Cliente objeto) throws HibernateException {
+        try {
+            iniciaOperacion();
+            session.delete(objeto);
+            tx.commit();
+        } catch (HibernateException he) {
+            manejaExcepcion(he);
+            throw he;
+        } finally {
+            session.close();
+        }
+    }
+	
+	public void actualizar(Cliente objeto) throws HibernateException {
+		try {
+			iniciaOperacion();
+			session.update(objeto);
+			tx.commit();
+		} catch (HibernateException he) {
+			manejaExcepcion(he);
+			throw he;
+		} finally {
+			session.close();
+		}
+	}
 
 	public Cliente traer(int idCliente) {
 		Cliente objeto = null;

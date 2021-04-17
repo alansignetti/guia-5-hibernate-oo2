@@ -7,9 +7,9 @@ public class TestAgregarPersonaJuridica {
 	public static void main(String[] args) {
 		
 		// variables
-			String nroCliente = "11123";
+			String nroCliente = "99999";
 			String razonSocial = "razonSocial111";
-			String cuit = "cuit111";
+			String cuit = "99999";
 		// variables
 		
 			
@@ -17,6 +17,7 @@ public class TestAgregarPersonaJuridica {
 		int id;
 		try {
 			id = abmCliente.agregarPersonaJuridica(nroCliente, razonSocial, cuit);
+			System.out.println("Agregado: "+ abmCliente.traer(id));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());

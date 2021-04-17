@@ -7,10 +7,10 @@ public class TestAgregarPersonaFisica {
 	public static void main(String[] args) {
 		
 		// variables
-			String nroCliente = "111";
+			String nroCliente = "444";
 			String apellido = "apellido111";
 			String nombre = "nombre111";
-			int dni=1112 ;
+			int dni=444 ;
 		// variables
 			
 			
@@ -19,6 +19,7 @@ public class TestAgregarPersonaFisica {
 			int id;
 			try {
 				id = abmCliente.agregarPersonaFisica(nroCliente, apellido, nombre, dni);
+				System.out.println("Agregado: "+ abmCliente.traer(id));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				System.out.println(e.getMessage());
